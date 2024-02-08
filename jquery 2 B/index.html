@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouse Position Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Attach mousemove event handler to the document within the iframe
+      $('iframe').contents().find('html').mousemove(function(event) {
+        // Calculate mouse position relative to the left and top edges of the document
+        var mouseX = event.pageX;
+        var mouseY = event.pageY;
+        
+        // Display the mouse position
+        $('#position').text('Mouse position - Left: ' + mouseX + ', Top: ' + mouseY);
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Iframe to load the content -->
+  <iframe src="iframe-content.html" width="500" height="300"></iframe>
+  
+  <!-- Paragraph to display mouse position -->
+  <p id="position"></p>
+</body>
+</html>
